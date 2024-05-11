@@ -1,16 +1,10 @@
 from langchain_community.graphs import Neo4jGraph
 
-import os
-from dotenv import load_dotenv
-load_dotenv()
-url = os.getenv('url')
-username = os.getenv('username')
-password = os.getenv('password')
 
 graph = Neo4jGraph(
-    url=url,
-    username=username,
-    password=password
+    url="bolt://34.234.223.41:7687",
+    username="neo4j",
+    password="east-rubber-retailer"
 )
 
 result = graph.query("""
@@ -19,3 +13,4 @@ RETURN m.title, m.plot, m.poster
 """)
 
 print(result)
+print(graph.schema)
