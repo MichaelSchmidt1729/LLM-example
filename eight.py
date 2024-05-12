@@ -32,3 +32,5 @@ new_vector = Neo4jVector.from_documents(
     embedding_node_property="embedding",
     create_id_index=True,
 )
+
+print(new_vector)
