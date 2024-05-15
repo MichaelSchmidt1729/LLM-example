@@ -14,6 +14,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 openai_api_key = os.getenv('OPENAI_API_KEY')
+url = os.getenv('URL')
+username = os.getenv('USERNAME')
+password = os.getenv('PASSWORD')
 
 # Service used to create the embeddings
 embedding_provider = OpenAIEmbeddings(
@@ -23,9 +26,12 @@ embedding_provider = OpenAIEmbeddings(
 new_vector = Neo4jVector.from_documents(
     documents,
     embedding_provider,
-    url="bolt://34.234.223.41:7687",
-    username="neo4j",
-    password="east-rubber-retailer",
+   # url="bolt://34.234.223.41:7687",
+   # username="neo4j",
+   # password="east-rubber-retailer",
+    url = url,
+    username = username,
+    password = password,
     index_name="myVectorIndex",
     node_label="Chunk",
     text_node_property="text",

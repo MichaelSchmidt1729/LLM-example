@@ -3,14 +3,14 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 openai_api_key = os.getenv('OPENAI_API_KEY')
-url = os.getenv('url')
-username = os.getenv('username')
-password = os.getenv('password')
+url = os.getenv('URL')
+username = os.getenv('USERNAME')
+password = os.getenv('PASSWORD')
 
 graph = Neo4jGraph(
-    url="bolt://34.234.223.41:7687",
-    username="neo4j",
-    password="east-rubber-retailer"
+    url=url,
+    username=username,
+    password=password
 )
 
 result = graph.query("""
